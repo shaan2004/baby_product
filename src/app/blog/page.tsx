@@ -20,49 +20,53 @@ export default function BlogPage() {
     <main className="pt-24 pb-20">
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-20">
         
-        <header className="text-center mb-20">
-          <h1 className="text-6xl md:text-8xl font-black text-gray-900 mb-6">
+        <header className="text-center mb-16 sm:mb-20">
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-black text-gray-900 mb-6">
             The <span className="text-gradient">Daily Bleat.</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto font-medium">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto font-medium">
             Expert advice, farm stories, and tips for your little one's skin journey.
           </p>
         </header>
 
-        {/* The grid automatically handles mobile responsiveness (1 col on mobile, 3 on desktop) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+        {/* UPDATED: Forced grid-cols-2 for mobile, scaling up to 3 on desktop */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-10">
           {posts.map((post, i) => (
             <ScrollReveal key={i} direction="up" delay={i * 0.1}>
-              <div className="glass card-premium rounded-[2.5rem] p-4 group hover:-translate-y-4 hover:shadow-[0_0_40px_rgba(244,114,182,0.2)] transition-all duration-500 bg-white/20 backdrop-blur-2xl h-full flex flex-col">
+              {/* ADDED: cursor-pointer and group-active states for instant touch feedback */}
+              <div className="glass card-premium rounded-3xl sm:rounded-[2.5rem] p-3 sm:p-4 group cursor-pointer hover:-translate-y-4 active:-translate-y-2 hover:shadow-[0_0_40px_rgba(244,114,182,0.2)] active:shadow-[0_0_40px_rgba(244,114,182,0.3)] transition-all duration-500 bg-white/20 backdrop-blur-2xl h-full flex flex-col">
                 
-                {/* Blog Image */}
-                <div className="relative h-64 w-full rounded-[2rem] overflow-hidden mb-6 shadow-inner border border-white/50">
-                  <Image src={post.img} alt={post.title} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
-                  <div className="absolute top-4 left-4 glass px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-sm">
-                    <Tag size={12} className="text-pink-500" /> {post.category}
+                {/* Blog Image - Responsive Height */}
+                <div className="relative h-32 sm:h-64 w-full rounded-2xl sm:rounded-[2rem] overflow-hidden mb-4 sm:mb-6 shadow-inner border border-white/50">
+                  {/* ADDED: group-active:scale-110 for touch zoom */}
+                  <Image src={post.img} alt={post.title} fill className="object-cover group-hover:scale-110 group-active:scale-110 transition-transform duration-700" />
+                  <div className="absolute top-2 left-2 sm:top-4 sm:left-4 glass px-2 py-1 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold flex items-center gap-1 shadow-sm">
+                    <Tag size={12} className="text-pink-500 w-3 h-3 sm:w-4 sm:h-4" /> 
+                    <span className="hidden sm:inline">{post.category}</span> {/* Hide text on small screens to save space */}
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="px-4 pb-4 flex flex-col flex-grow">
-                  <div className="flex items-center gap-4 text-xs font-bold text-gray-500 mb-3">
-                    <span className="flex items-center gap-1"><Clock size={14}/> {post.time}</span>
-                    <span>April 15, 2026</span>
+                <div className="px-2 sm:px-4 pb-2 sm:pb-4 flex flex-col flex-grow">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 text-[10px] sm:text-xs font-bold text-gray-500 mb-2 sm:mb-3">
+                    <span className="flex items-center gap-1"><Clock size={12} className="sm:w-[14px] sm:h-[14px]"/> {post.time}</span>
+                    <span className="hidden sm:block">April 15, 2026</span>
                   </div>
                   
-                  {/* UPDATED: Title changes to your 3-color gradient on hover/tap */}
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:via-purple-500 group-hover:to-pink-500 transition-all duration-300">
+                  {/* ADDED: group-active gradients for touch screens */}
+                  <h3 className="text-sm sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:via-purple-500 group-hover:to-pink-500 group-active:text-transparent group-active:bg-clip-text group-active:bg-gradient-to-r group-active:from-blue-500 group-active:via-purple-500 group-active:to-pink-500 transition-all duration-300 line-clamp-3 sm:line-clamp-none">
                     {post.title}
                   </h3>
                   
                   <div className="mt-auto flex justify-between items-center">
-                    {/* Read Story text also transitions to the gradient */}
-                    <span className="text-sm font-bold text-gray-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:via-purple-500 group-hover:to-pink-500 transition-all duration-300">
+                    {/* Hide the "Read Story" text on mobile to keep the 2-col UI clean */}
+                    <span className="hidden sm:block text-sm font-bold text-gray-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:via-purple-500 group-hover:to-pink-500 group-active:text-transparent group-active:bg-clip-text group-active:bg-gradient-to-r group-active:from-blue-500 group-active:via-purple-500 group-active:to-pink-500 transition-all duration-300">
                       Read Story
                     </span>
                     
-                    <div className="w-10 h-10 glass rounded-full flex items-center justify-center group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:via-purple-400 group-hover:to-pink-500 group-hover:text-white transition-all shadow-md">
-                      <ArrowUpRight size={18} />
+                    {/* ADDED: group-active background gradients for the button */}
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 glass rounded-full flex items-center justify-center ml-auto sm:ml-0 group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:via-purple-400 group-hover:to-pink-500 group-hover:text-white group-active:bg-gradient-to-r group-active:from-blue-400 group-active:via-purple-400 group-active:to-pink-500 group-active:text-white transition-all shadow-md">
+                      <ArrowUpRight size={16} className="sm:w-[18px] sm:h-[18px]" />
                     </div>
                   </div>
                 </div>
