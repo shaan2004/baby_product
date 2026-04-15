@@ -28,10 +28,12 @@ function RowGuide({
   const scaleX = direction === "ltr" ? -1 : 1;
   const rotate = useTransform(scrollYProgress, [0, 0.2, 0.4, 0.6, 0.8, 1], [0, 7, -7, 7, -7, 0]);
 
-  const verticalClass = vPos === "top" ? "-top-24" : "-bottom-24";
+  // FIX: Changed -bottom-24 to -bottom-40 to push it completely under the cards
+  const verticalClass = vPos === "top" ? "-top-24" : "-bottom-40";
 
   return (
-    <div className={`absolute ${verticalClass} left-0 w-screen pointer-events-none z-20`}>
+    // FIX: Increased z-index from z-20 to z-50 to ensure it never hides behind the glass cards
+    <div className={`absolute ${verticalClass} left-0 w-screen pointer-events-none z-50`}>
       <motion.div
         style={{ x, rotate, scaleX }}
         className="w-28 h-28 md:w-36 md:h-36"
@@ -47,7 +49,6 @@ function RowGuide({
     </div>
   );
 }
-
 export default function ProductsPage() {
   const row1Ref = useRef<HTMLDivElement>(null);
   const row2Ref = useRef<HTMLDivElement>(null);
@@ -71,10 +72,12 @@ export default function ProductsPage() {
           Pediatrician Approved & Organic
         </ScrollReveal>
 
-        <h1 className="text-6xl md:text-8xl font-extrabold text-gray-900 leading-[0.9] mb-6">
-          <TextReveal text="Gentle Care" />
-          <span className="text-gradient block mt-2">Essentials</span>
-        </h1>
+        {/* UPDATED: Title with Glassmorphism + Gradient + Glowing Drop Shadow */}
+        <ScrollReveal direction="down">
+          <h1 className="text-5xl md:text-8xl font-black tracking-widest uppercase text-gradient drop-shadow-[0_0_30px_rgba(244,114,182,0.4)] opacity-80 mb-6">
+            Gentle Care Essentials
+          </h1>
+        </ScrollReveal>
 
         <ScrollReveal delay={0.4} direction="up">
           <p className="text-lg md:text-xl text-gray-700 font-medium leading-relaxed max-w-2xl mx-auto">
