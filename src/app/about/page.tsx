@@ -9,17 +9,20 @@ import { Heart, Shrub, ShieldCheck, Users } from "lucide-react";
 export default function AboutPage() {
   return (
     <main className="pt-24 pb-20 overflow-hidden">
-      {/* SECTION 1: MISSION HERO */}
-      <section className="px-4 max-w-7xl mx-auto py-20 text-center">
-        <ScrollReveal direction="down" className="glass card-premium px-4 py-1.5 rounded-full text-xs font-bold text-gray-700 uppercase mb-8 inline-block hover:-translate-y-1 transition-transform">
+     {/* SECTION 1: MISSION HERO */}
+      <section className="px-4 max-w-7xl mx-auto py-20 text-center flex flex-col items-center justify-center">
+        <ScrollReveal direction="down" className="glass card-premium px-4 py-1.5 rounded-full text-xs font-bold text-gray-700 uppercase mb-8 inline-block hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(96,165,250,0.3)] transition-all">
           Our Heart & Soul
         </ScrollReveal>
-        <h1 className="text-6xl md:text-8xl font-black text-gray-900 leading-tight mb-8">
+        
+        {/* ADDED: flex col and items-center to keep the gradient span perfectly centered below TextReveal */}
+        <h1 className="text-5xl sm:text-6xl md:text-8xl font-black text-gray-900 leading-tight mb-8 flex flex-col items-center">
           <TextReveal text="Pure Love," />
           <span className="text-gradient block">Pure Ingredients.</span>
         </h1>
+        
         <ScrollReveal delay={0.4} direction="up">
-          <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">
             We didn't start as a brand; we started as parents looking for a cure. 
             Today, we share the healing power of goat milk with the world.
           </p>
@@ -27,39 +30,54 @@ export default function AboutPage() {
       </section>
 
       {/* SECTION 2: THE SOURCE (THE FARM) */}
-      <section className="py-24 relative px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <ScrollReveal direction="right" className="relative h-[500px] glass card-premium rounded-[3rem] overflow-hidden hover:-translate-y-2 transition-transform duration-500 bg-white/30 backdrop-blur-xl">
+      <section className="py-12 sm:py-24 relative px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 sm:gap-16 items-center">
+          <ScrollReveal direction="right" className="order-2 md:order-1 relative h-64 sm:h-[500px] glass card-premium rounded-[2rem] sm:rounded-[3rem] overflow-hidden hover:-translate-y-3 active:-translate-y-2 hover:shadow-[0_0_40px_rgba(244,114,182,0.3)] active:shadow-[0_0_40px_rgba(244,114,182,0.3)] transition-all duration-500 bg-white/30 backdrop-blur-xl">
              <Image src="/assets/goat.jpg" alt="Our happy goats" fill className="object-cover" />
              <div className="absolute inset-0 bg-gradient-to-t from-blue-200/40 to-transparent" />
           </ScrollReveal>
-          <ScrollReveal direction="left">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Ethically Sourced, <br/><span className="text-pink-500">Happily Raised.</span></h2>
-            <p className="text-lg text-gray-700 mb-6">Our goats graze on organic pastures in the rolling hills. We believe that happy, stress-free goats produce the richest, most nutrient-dense milk.</p>
+          
+          <ScrollReveal direction="left" className="order-1 md:order-2 text-center md:text-left">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Ethically Sourced, <br className="hidden sm:block"/><span className="text-pink-500">Happily Raised.</span></h2>
+            <p className="text-base sm:text-lg text-gray-700 mb-8 mx-auto md:mx-0 max-w-md">Our goats graze on organic pastures in the rolling hills. We believe that happy, stress-free goats produce the richest, most nutrient-dense milk.</p>
+            
             <div className="grid grid-cols-2 gap-4">
-              <div className="glass card-premium p-4 rounded-2xl hover:-translate-y-1 transition-transform duration-300"><p className="font-bold text-blue-500">100% Organic</p><p className="text-sm">Non-GMO Feed</p></div>
-              <div className="glass card-premium p-4 rounded-2xl hover:-translate-y-1 transition-transform duration-300"><p className="font-bold text-pink-500">Cruelty-Free</p><p className="text-sm">Ethical Milking</p></div>
+              {/* Added Hover/Active Gradient styling to match screenshot */}
+              <div className="glass card-premium p-4 rounded-2xl group cursor-pointer hover:-translate-y-2 active:-translate-y-1 hover:shadow-[0_0_20px_rgba(96,165,250,0.4)] active:shadow-[0_0_20px_rgba(96,165,250,0.4)] transition-all duration-300 relative overflow-hidden">
+                 <div className="absolute inset-0 bg-theme-gradient opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300 -z-10"></div>
+                 <p className="font-bold text-blue-500 group-hover:text-white group-active:text-white transition-colors">100% Organic</p>
+                 <p className="text-xs sm:text-sm text-gray-600 group-hover:text-white/90 group-active:text-white/90 transition-colors">Non-GMO Feed</p>
+              </div>
+              <div className="glass card-premium p-4 rounded-2xl group cursor-pointer hover:-translate-y-2 active:-translate-y-1 hover:shadow-[0_0_20px_rgba(244,114,182,0.4)] active:shadow-[0_0_20px_rgba(244,114,182,0.4)] transition-all duration-300 relative overflow-hidden">
+                 <div className="absolute inset-0 bg-theme-gradient opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300 -z-10"></div>
+                 <p className="font-bold text-pink-500 group-hover:text-white group-active:text-white transition-colors">Cruelty-Free</p>
+                 <p className="text-xs sm:text-sm text-gray-600 group-hover:text-white/90 group-active:text-white/90 transition-colors">Ethical Milking</p>
+              </div>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
       {/* SECTION 3: THE PROCESS */}
-      <section className="py-24 bg-white/20 backdrop-blur-sm border-y border-white/40">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-16">The Handcrafted Journey</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+      <section className="py-16 sm:py-24 bg-white/20 backdrop-blur-sm border-y border-white/40">
+        <div className="max-w-7xl mx-auto text-center px-0 sm:px-4">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-12 sm:mb-16">The Handcrafted Journey</h2>
+          
+          {/* Mobile Horizontal Scroll | Desktop Grid */}
+          <div className="flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible gap-6 px-4 pb-8 sm:pb-0 snap-x snap-mandatory hide-scrollbar">
             {[
               { icon: Heart, title: "Small Batches", desc: "Crafted by hand to ensure potency and freshness." },
               { icon: Shrub, title: "Botanical Blends", desc: "Infused with organic chamomile and lavender." },
               { icon: ShieldCheck, title: "Triple Tested", desc: "Every batch is tested for purity and pH balance." }
             ].map((step, i) => (
-              <ScrollReveal key={i} delay={i * 0.2} direction="up" className="glass card-premium p-8 rounded-[2rem] hover:-translate-y-3 transition-transform duration-500 relative group bg-white/30 backdrop-blur-xl">
-                <div className="w-16 h-16 bg-theme-gradient rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform shadow-lg">
+              <ScrollReveal key={i} delay={i * 0.2} direction="up" className="min-w-[85vw] sm:min-w-0 snap-center glass card-premium p-8 rounded-[2rem] hover:-translate-y-3 active:-translate-y-2 hover:shadow-[0_0_35px_rgba(244,114,182,0.3)] active:shadow-[0_0_35px_rgba(244,114,182,0.3)] transition-all duration-500 relative group cursor-pointer bg-white/30 backdrop-blur-xl overflow-hidden shrink-0">
+                <div className="absolute inset-0 bg-theme-gradient opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-500 -z-10"></div>
+                
+                <div className="w-16 h-16 bg-theme-gradient group-hover:bg-white group-active:bg-white rounded-2xl flex items-center justify-center text-white group-hover:text-pink-500 group-active:text-pink-500 mb-6 group-hover:scale-110 group-active:scale-110 transition-all shadow-lg mx-auto">
                   <step.icon size={32} />
                 </div>
-                <h3 className="text-xl font-bold mb-4">{step.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{step.desc}</p>
+                <h3 className="text-xl font-bold mb-4 text-gray-900 group-hover:text-white group-active:text-white transition-colors">{step.title}</h3>
+                <p className="text-gray-600 group-hover:text-white/90 group-active:text-white/90 leading-relaxed transition-colors">{step.desc}</p>
               </ScrollReveal>
             ))}
           </div>
@@ -67,16 +85,23 @@ export default function AboutPage() {
       </section>
 
       {/* SECTION 4: SUSTAINABILITY VALUES */}
-      <section className="py-24 max-w-7xl mx-auto px-4">
-        <div className="glass card-premium p-12 rounded-[4rem] text-center bg-white/40 backdrop-blur-2xl overflow-hidden relative hover:-translate-y-2 transition-transform duration-500">
+      <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4">
+        <div className="glass card-premium p-8 sm:p-12 rounded-3xl sm:rounded-[4rem] text-center bg-white/40 backdrop-blur-2xl overflow-hidden relative hover:-translate-y-3 active:-translate-y-2 hover:shadow-[0_0_50px_rgba(96,165,250,0.3)] transition-all duration-500">
           <div className="absolute top-0 left-0 w-full h-2 bg-theme-gradient" />
+          
           <ScrollReveal direction="up">
-            <h2 className="text-4xl font-bold mb-6">A Promise to the Future</h2>
-            <p className="text-xl text-gray-700 max-w-2xl mx-auto mb-10">We use 100% recyclable glass and plant-based plastics. Because we aren't just protecting your baby—we're protecting the world they'll grow up in.</p>
-            <div className="flex flex-wrap justify-center gap-6">
-              <span className="glass card-premium px-6 py-2 rounded-full font-bold text-blue-600 hover:-translate-y-1 transition-transform">Zero Waste</span>
-              <span className="glass card-premium px-6 py-2 rounded-full font-bold text-pink-600 hover:-translate-y-1 transition-transform">Carbon Neutral</span>
-              <span className="glass card-premium px-6 py-2 rounded-full font-bold text-blue-600 hover:-translate-y-1 transition-transform">Plastic Positive</span>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">A Promise to the Future</h2>
+            <p className="text-lg sm:text-xl text-gray-700 max-w-2xl mx-auto mb-10">We use 100% recyclable glass and plant-based plastics. Because we aren't just protecting your baby—we're protecting the world they'll grow up in.</p>
+            
+            {/* Added Image Block */}
+            <div className="relative w-full max-w-lg mx-auto h-48 sm:h-64 rounded-3xl overflow-hidden mb-10 shadow-inner border border-white/50">
+              <Image src="/assets/nature.jpg" alt="Sustainable Future" fill className="object-cover" />
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-6">
+              <span className="glass card-premium px-4 sm:px-6 py-2 rounded-full font-bold text-blue-600 text-sm sm:text-base hover:-translate-y-1 hover:bg-theme-gradient hover:text-white transition-all cursor-pointer">Zero Waste</span>
+              <span className="glass card-premium px-4 sm:px-6 py-2 rounded-full font-bold text-pink-600 text-sm sm:text-base hover:-translate-y-1 hover:bg-theme-gradient hover:text-white transition-all cursor-pointer">Carbon Neutral</span>
+              <span className="glass card-premium px-4 sm:px-6 py-2 rounded-full font-bold text-blue-600 text-sm sm:text-base hover:-translate-y-1 hover:bg-theme-gradient hover:text-white transition-all cursor-pointer">Plastic Positive</span>
             </div>
           </ScrollReveal>
         </div>
