@@ -276,9 +276,9 @@ export default function Home() {
 
         <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 overflow-x-auto sm:overflow-visible snap-x snap-mandatory hide-scrollbar pb-8 sm:pb-0 px-4 sm:px-0">
           {[
-            { name: "Gentle Wash & Shampoo", price: "$18.00", tag: "Best Seller", image: "/assets/shampoo.png" },
-            { name: "Soothing Diaper Balm", price: "$14.00", tag: "Must Have", image: "/assets/balm.png" },
-            { name: "Calming Massage Oil", price: "$22.00", tag: "New", image: "/assets/oil.png" }
+            { name: "Gentle Wash & Shampoo", price: "₹750", tag: "Best Seller", image: "/assets/shampoo.png" },
+            { name: "Soothing Diaper Balm", price: "₹450", tag: "Must Have", image: "/assets/balm.png" },
+            { name: "Calming Massage Oil", price: "₹250", tag: "New", image: "/assets/oil.png" }
           ].map((product, i) => (
             <ScrollReveal key={i} direction="up" delay={i * 0.15} className="min-w-[85vw] sm:min-w-0 snap-center shrink-0">
               <div className="glass card-premium rounded-[2.5rem] p-6 group hover:-translate-y-4 active:-translate-y-2 hover:shadow-[0_0_40px_rgba(244,114,182,0.25)] active:shadow-[0_0_40px_rgba(244,114,182,0.35)] transition-all duration-500 flex flex-col h-full bg-white/40 backdrop-blur-2xl">

@@ -53,12 +53,12 @@ export default function ProductsPage() {
   const row2Ref = useRef<HTMLDivElement>(null);
 
   const products = [
-    { name: "Gentle Wash & Shampoo", price: "$18.00", tag: "Best Seller", image: "/assets/shampoo.png" },
-    { name: "Soothing Diaper Balm", price: "$14.00", tag: "Must Have", image: "/assets/balm.png" },
-    { name: "Calming Massage Oil", price: "$22.00", tag: "New", image: "/assets/oil.png" },
-    { name: "Signature Daily Baby Lotion", price: "$24.00", tag: "Award Winning", image: "/assets/lotion.png" },
-    { name: "Organic Baby Wash", price: "$18.00", tag: "Eco Friendly", image: "/assets/shampoo.png" },
-    { name: "Nourishing Baby Oil", price: "$22.00", tag: "Pure", image: "/assets/oil.png" },
+    { name: "Gentle Wash & Shampoo", price: "₹750", tag: "Best Seller", image: "/assets/shampoo.png" },
+    { name: "Soothing Diaper Balm", price: "₹450", tag: "Must Have", image: "/assets/balm.png" },
+    { name: "Calming Massage Oil", price: "₹250", tag: "New", image: "/assets/oil.png" },
+    { name: "Signature Daily Baby Lotion", price: "₹240", tag: "Award Winning", image: "/assets/lotion.png" },
+    { name: "Organic Baby Wash", price: "₹180", tag: "Eco Friendly", image: "/assets/shampoo.png" },
+    { name: "Nourishing Baby Oil", price: "₹220", tag: "Pure", image: "/assets/oil.png" },
   ];
 
   return (
