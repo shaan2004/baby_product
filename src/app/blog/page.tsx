@@ -7,7 +7,7 @@ import Image from "next/image";
 import { ArrowUpRight, Clock, Tag } from "lucide-react";
 
 const posts = [
-  { title: "Why Goat Milk is the Best for Eczema", category: "Skin Care", time: "5 min read", img: "/assets/milk.jpg" },
+  { title: "Why Donkey Milk is the Best for Eczema", category: "Skin Care", time: "5 min read", img: "/assets/milk.jpg" },
   { title: "The Bedtime Routine Every Mom Needs", category: "Wellness", time: "8 min read", img: "/assets/bedtime.jpg" },
   { title: "Sourcing Organic: What to Look For", category: "Sourcing", time: "6 min read", img: "/assets/nature.jpg" },
   { title: "Understanding Your Baby's Skin pH", category: "Science", time: "10 min read", img: "/assets/php.jpg" },
@@ -17,7 +17,8 @@ const posts = [
 
 export default function BlogPage() {
   return (
-    <main className="pt-24 pb-20">
+    // UPDATED: Added the denser gradient background here to match the About and Home pages
+    <main className="pt-24 pb-20 bg-gradient-to-br from-blue-200 via-purple-100 to-pink-200 min-h-screen">
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-20">
         
         <header className="text-center mb-16 sm:mb-20">
@@ -29,16 +30,16 @@ export default function BlogPage() {
           </p>
         </header>
 
-        {/* UPDATED: Forced grid-cols-2 for mobile, scaling up to 3 on desktop */}
+        {/* Forced grid-cols-2 for mobile, scaling up to 3 on desktop */}
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-10">
           {posts.map((post, i) => (
             <ScrollReveal key={i} direction="up" delay={i * 0.1}>
-              {/* ADDED: cursor-pointer and group-active states for instant touch feedback */}
+              {/* cursor-pointer and group-active states for instant touch feedback */}
               <div className="glass card-premium rounded-3xl sm:rounded-[2.5rem] p-3 sm:p-4 group cursor-pointer hover:-translate-y-4 active:-translate-y-2 hover:shadow-[0_0_40px_rgba(244,114,182,0.2)] active:shadow-[0_0_40px_rgba(244,114,182,0.3)] transition-all duration-500 bg-white/20 backdrop-blur-2xl h-full flex flex-col">
                 
                 {/* Blog Image - Responsive Height */}
                 <div className="relative h-32 sm:h-64 w-full rounded-2xl sm:rounded-[2rem] overflow-hidden mb-4 sm:mb-6 shadow-inner border border-white/50">
-                  {/* ADDED: group-active:scale-110 for touch zoom */}
+                  {/* group-active:scale-110 for touch zoom */}
                   <Image src={post.img} alt={post.title} fill className="object-cover group-hover:scale-110 group-active:scale-110 transition-transform duration-700" />
                   <div className="absolute top-2 left-2 sm:top-4 sm:left-4 glass px-2 py-1 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold flex items-center gap-1 shadow-sm">
                     <Tag size={12} className="text-pink-500 w-3 h-3 sm:w-4 sm:h-4" /> 
@@ -53,7 +54,7 @@ export default function BlogPage() {
                     <span className="hidden sm:block">April 15, 2026</span>
                   </div>
                   
-                  {/* ADDED: group-active gradients for touch screens */}
+                  {/* group-active gradients for touch screens */}
                   <h3 className="text-sm sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:via-purple-500 group-hover:to-pink-500 group-active:text-transparent group-active:bg-clip-text group-active:bg-gradient-to-r group-active:from-blue-500 group-active:via-purple-500 group-active:to-pink-500 transition-all duration-300 line-clamp-3 sm:line-clamp-none">
                     {post.title}
                   </h3>
@@ -64,7 +65,7 @@ export default function BlogPage() {
                       Read Story
                     </span>
                     
-                    {/* ADDED: group-active background gradients for the button */}
+                    {/* group-active background gradients for the button */}
                     <div className="w-8 h-8 sm:w-10 sm:h-10 glass rounded-full flex items-center justify-center ml-auto sm:ml-0 group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:via-purple-400 group-hover:to-pink-500 group-hover:text-white group-active:bg-gradient-to-r group-active:from-blue-400 group-active:via-purple-400 group-active:to-pink-500 group-active:text-white transition-all shadow-md">
                       <ArrowUpRight size={16} className="sm:w-[18px] sm:h-[18px]" />
                     </div>

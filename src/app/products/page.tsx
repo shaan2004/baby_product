@@ -62,7 +62,8 @@ export default function ProductsPage() {
   ];
 
   return (
-    <main className="relative w-full min-h-screen pt-24 pb-12 overflow-x-hidden">
+    // UPDATED: Added the denser colorful gradient background (from-blue-200 via-purple-100 to-pink-200)
+    <main className="relative w-full min-h-screen pt-24 pb-12 overflow-x-hidden bg-gradient-to-br from-blue-200 via-purple-100 to-pink-200">
       
       {/* --- CENTERED HEADER SECTION --- */}
       <section className="relative px-4 max-w-4xl mx-auto mb-20 sm:mb-40 text-center z-10 flex flex-col items-center">
@@ -81,7 +82,8 @@ export default function ProductsPage() {
 
         <ScrollReveal delay={0.4} direction="up">
           <p className="text-base sm:text-lg md:text-xl text-gray-700 font-medium leading-relaxed max-w-2xl mx-auto">
-            Nurture your baby's delicate skin with the healing power of farm-fresh goat milk. Our pH-balanced formulas are designed to soothe eczema and protect the natural skin barrier. Trusted by over 10,000 parents nationwide.
+            {/* UPDATED: goat -> donkey */}
+            Nurture your baby's delicate skin with the healing power of farm-fresh donkey milk. Our pH-balanced formulas are designed to soothe eczema and protect the natural skin barrier. Trusted by over 10,000 parents nationwide.
           </p>
         </ScrollReveal>
       </section>

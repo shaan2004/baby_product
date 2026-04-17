@@ -52,10 +52,10 @@ export default function Footer() {
           {/* Column 1: Brand & Identity */}
           <ScrollReveal direction="up" delay={0.1}>
             <Link href="/" className="text-4xl font-black tracking-tighter text-gray-900 inline-block mb-8">
-              Goat<span className={textGradient}>Baby</span>
+              Tender<span className={textGradient}>Touch</span>
             </Link>
             <p className="text-gray-700 mb-8 leading-relaxed font-medium">
-              Pure, organic goat milk skincare crafted with love for your baby's delicate skin. Farm to bath, naturally.
+              Pure, organic Donkey milk skincare crafted with love for your baby's delicate skin. Farm to bath, naturally.
             </p>
             <div className="flex space-x-4">
               {[InstagramIcon, FacebookIcon, WhatsAppIcon].map((Icon, i) => (
@@ -104,14 +104,14 @@ export default function Footer() {
                 <div className={`w-10 h-10 glass rounded-xl flex items-center justify-center text-blue-500 ${groupHoverBtnGradient} group-hover:text-white transition-all shadow-md shrink-0`}>
                   <Mail size={18} />
                 </div>
-                <p className="font-bold text-gray-800">hello@goatbaby.com</p>
+                <p className="font-bold text-gray-800">hello@TenderTouch.com</p>
               </li>
               
               <li className="flex items-center gap-4 group cursor-pointer">
                 <div className={`w-10 h-10 glass rounded-xl flex items-center justify-center text-pink-500 ${groupHoverBtnGradient} group-hover:text-white transition-all shadow-md shrink-0`}>
                   <Phone size={18} />
                 </div>
-                <p className="font-bold text-gray-800">1-800-GOAT-BBY</p>
+                <p className="font-bold text-gray-800">1-800-TENDER-TOUCH</p>
               </li>
               
               <li className="flex items-start gap-4 group cursor-pointer">
@@ -154,7 +154,7 @@ export default function Footer() {
 
         {/* --- BOTTOM LEGAL BAR --- */}
         <ScrollReveal direction="up" delay={0.5} className="pt-10 border-t border-white/60 flex flex-col md:flex-row justify-between items-center gap-6 text-sm">
-          <p className="font-bold text-gray-600">© 2026 GoatBaby. All rights reserved.</p>
+          <p className="font-bold text-gray-600">© 2026 TenderTouch. All rights reserved.</p>
           <div className="flex gap-8 font-bold text-gray-700">
             <Link href="#" className="hover:text-purple-600 transition-colors">Privacy</Link>
             <Link href="#" className="hover:text-purple-600 transition-colors">Terms</Link>

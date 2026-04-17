@@ -28,7 +28,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="text-2xl font-extrabold tracking-tighter text-gray-900">
-              Goat<span className="text-gradient">Baby</span>
+              Tender<span className="text-gradient">Touch</span>
             </Link>
           </div>
 

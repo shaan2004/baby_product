@@ -65,7 +65,7 @@ function ProcessTimeline() {
   const x = useTransform(scrollYProgress, [0, 1], ["0vw", "-500vw"]);
 
   const steps = [
-    { num: "01", title: "Ethical Sourcing", desc: "Our happy goats graze on organic pastures, ensuring the most nutrient-dense milk.", pos: "top-[15%]" },
+    { num: "01", title: "Ethical Sourcing", desc: "Our happy donkeys graze on organic pastures, ensuring the most nutrient-dense milk.", pos: "top-[15%]" },
     { num: "02", title: "Fresh Milking", desc: "Collected daily and immediately chilled to preserve vitamins A & E.", pos: "bottom-[15%]" },
     { num: "03", title: "Botanical Infusion", desc: "Slowly blended with calming chamomile and oat extracts in small batches.", pos: "top-[15%]" },
     { num: "04", title: "Curing & Testing", desc: "Cured for 6 weeks and triple-tested to guarantee a perfect pH match for baby skin.", pos: "bottom-[15%]" },
@@ -118,7 +118,8 @@ function ProcessTimeline() {
 
 export default function Home() {
   return (
-    <main className="relative w-full min-h-screen selection:bg-pink-200 selection:text-gray-900 overflow-x-clip">
+    // UPDATED: Increased gradient density to match Products/About pages (blue-200 via-purple-100 to-pink-200)
+    <main className="relative w-full min-h-screen selection:bg-pink-200 selection:text-gray-900 overflow-x-clip bg-gradient-to-br from-blue-200 via-purple-100 to-pink-200">
      
       <HeroSection />
 
@@ -129,7 +130,6 @@ export default function Home() {
             <div className="glass card-premium p-8 md:p-12 rounded-3xl relative hover:-translate-y-3 active:-translate-y-2 hover:shadow-[0_0_40px_rgba(96,165,250,0.2)] active:shadow-[0_0_40px_rgba(96,165,250,0.3)] transition-all duration-500">
               <div className="absolute -top-6 -left-6 w-24 h-24 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
               
-              {/* ADDED: "Our Story" Gradient Eyebrow */}
               <span className="text-gradient font-bold tracking-wider uppercase text-sm mb-2 block">
                 Our Story
               </span>
@@ -143,11 +143,10 @@ export default function Home() {
                   Tired of harsh chemicals irritating your baby's delicate skin? <strong>We were too.</strong>
                 </p>
                 <p>
-                  When commercial products failed our little ones, we turned to nature. We discovered that farm-fresh goat milk perfectly matches your baby's natural pH, delivering deep, chemical-free hydration that instantly soothes and protects.
+                  When commercial products failed our little ones, we turned to nature. We discovered that farm-fresh donkey milk perfectly matches your baby's natural pH, delivering deep, chemical-free hydration that instantly soothes and protects.
                 </p>
               </div>
               
-              {/* UPDATED: Button with glowing box-shadow animation mapping hover to active for mobile touch */}
               <motion.button 
                 initial="initial"
                 whileInView="animate"
@@ -176,8 +175,8 @@ export default function Home() {
 
           <ScrollReveal direction="left" className="order-1 md:order-2 h-96 w-full rounded-3xl glass card-premium flex items-center justify-center overflow-hidden relative group hover:-translate-y-3 active:-translate-y-2 hover:shadow-[0_0_40px_rgba(244,114,182,0.2)] active:shadow-[0_0_40px_rgba(244,114,182,0.3)] transition-all duration-500">
             <Image 
-              src="/assets/story.png" 
-              alt="Goat Milk Farm to Skin" 
+              src="/assets/mama.png" 
+              alt="Donkey Milk Farm to Skin" 
               fill 
               className="object-cover group-hover:scale-105 group-active:scale-105 transition-transform duration-700" 
             />
@@ -196,14 +195,12 @@ export default function Home() {
           
           <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
             <ScrollReveal direction="up" className="flex justify-center">
-              {/* UPDATED: Significantly increased image size to w-96/h-[32rem] and made it mobile responsive */}
               <div className="relative w-[80vw] h-[100vw] sm:w-80 sm:h-96 md:w-96 md:h-[32rem] mx-auto glass card-premium rounded-3xl border-white/50 overflow-hidden shadow-inner animate-float-tilt hover:shadow-[0_0_40px_rgba(96,165,250,0.4)] active:shadow-[0_0_40px_rgba(96,165,250,0.5)] transition-shadow duration-500">
                 <Image src="/assets/lotion.png" alt="Signature Daily Baby Lotion" fill className="object-cover" />
               </div>
             </ScrollReveal>
 
             <ScrollReveal direction="up" delay={0.2}>
-              {/* UPDATED: Changed to "Signature Product" text with gradient */}
               <span className="text-gradient font-bold tracking-wider uppercase text-sm mb-2 block">
                 Signature Product
               </span>
@@ -218,7 +215,6 @@ export default function Home() {
                   { icon: Leaf, text: "100% free from toxins, parabens, and sulfates" }
                 ].map((item, i) => (
                   <li key={i} className="flex items-center text-lg text-gray-700">
-                    {/* UPDATED: Icons now use the vivid gradient background with a glow */}
                     <div className="w-8 h-8 rounded-full bg-theme-gradient flex items-center justify-center mr-4 text-white shadow-[0_0_15px_rgba(244,114,182,0.4)] shrink-0">
                       <item.icon className="w-4 h-4" />
                     </div>
@@ -230,15 +226,11 @@ export default function Home() {
               <div className="glass card-premium p-6 rounded-2xl hover:-translate-y-2 active:-translate-y-1 hover:shadow-[0_0_20px_rgba(96,165,250,0.2)] active:shadow-[0_0_20px_rgba(96,165,250,0.3)] transition-all duration-500">
                 <p className="font-semibold text-gray-900 mb-4">Not sure yet? Try it for free.</p>
                 <form className="flex flex-col sm:flex-row gap-4" onSubmit={(e) => e.preventDefault()}>
-                  
-                  {/* UPDATED: Neumorphism style input with glowing focus */}
                   <input 
                     type="email" 
                     placeholder="Enter your email" 
                     className="flex-1 px-5 py-4 rounded-full bg-[#eef2f6] shadow-[inset_4px_4px_8px_rgba(0,0,0,0.1),inset_-4px_-4px_8px_rgba(255,255,255,0.9)] focus:outline-none focus:shadow-[0_0_20px_rgba(244,114,182,0.4),inset_4px_4px_8px_rgba(0,0,0,0.1),inset_-4px_-4px_8px_rgba(255,255,255,0.9)] border-transparent text-gray-800 placeholder-gray-500 transition-all duration-300"
                   />
-                  
-                  {/* UPDATED: Button with intense glowing box-shadow animation */}
                   <motion.button 
                     initial="initial"
                     whileInView="animate"
@@ -282,14 +274,12 @@ export default function Home() {
           </ScrollReveal>
         </div>
 
-        {/* UPDATED: Left-to-right horizontal scroll on Mobile, Grid on Desktop */}
         <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 overflow-x-auto sm:overflow-visible snap-x snap-mandatory hide-scrollbar pb-8 sm:pb-0 px-4 sm:px-0">
           {[
             { name: "Gentle Wash & Shampoo", price: "$18.00", tag: "Best Seller", image: "/assets/shampoo.png" },
             { name: "Soothing Diaper Balm", price: "$14.00", tag: "Must Have", image: "/assets/balm.png" },
             { name: "Calming Massage Oil", price: "$22.00", tag: "New", image: "/assets/oil.png" }
           ].map((product, i) => (
-            // Mobile snapping logic applied to wrapper
             <ScrollReveal key={i} direction="up" delay={i * 0.15} className="min-w-[85vw] sm:min-w-0 snap-center shrink-0">
               <div className="glass card-premium rounded-[2.5rem] p-6 group hover:-translate-y-4 active:-translate-y-2 hover:shadow-[0_0_40px_rgba(244,114,182,0.25)] active:shadow-[0_0_40px_rgba(244,114,182,0.35)] transition-all duration-500 flex flex-col h-full bg-white/40 backdrop-blur-2xl">
                 <div className="w-full h-48 rounded-2xl mb-6 relative overflow-hidden flex items-center justify-center border border-white/50 shadow-inner bg-white/20">
@@ -316,7 +306,6 @@ export default function Home() {
 
       {/* --- FAQ SECTION --- */}
       <section className="py-24 relative px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto">
-        {/* UPDATED: Centered and added text-gradient / glowing shadow */}
         <div className="text-center flex flex-col items-center justify-center mb-12">
           <h2 className="text-4xl md:text-5xl font-black text-gradient drop-shadow-[0_0_20px_rgba(244,114,182,0.3)] mb-4 text-center">
             Frequently Asked Questions
@@ -325,7 +314,7 @@ export default function Home() {
 
         <div className="space-y-4">
           {[
-            { q: "Is goat milk safe for newborns?", a: "Yes! Goat milk is incredibly gentle and has a pH level similar to human skin, making it safe and soothing for newborns." },
+            { q: "Is donkey milk safe for newborns?", a: "Yes! Donkey milk is incredibly gentle and has a pH level similar to human skin, making it safe and soothing for newborns." },
             { q: "Do you use artificial fragrances?", a: "Never. Our gentle scent comes strictly from a very mild, organic blend of chamomile and oat extracts." },
             { q: "Is your packaging eco-friendly?", a: "Absolutely. We use 100% recyclable bottles and sustainable shipping materials." }
           ].map((faq, i) => (

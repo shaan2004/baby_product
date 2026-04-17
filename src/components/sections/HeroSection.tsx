@@ -12,8 +12,8 @@ export default function HeroSection() {
   const containerRef = useRef(null);
   const [index, setIndex] = useState(0);
   
-  // List of images for the background transition
-  const images = ["/assets/b1.png", "/assets/b2.png"];
+  // UPDATED: Added an extra banner image b3.png
+  const images = ["/assets/b4.png", "/assets/b1.png", "/assets/b3.png"];
 
   // Auto-transition timer (every 5 seconds)
   useEffect(() => {
@@ -29,7 +29,7 @@ export default function HeroSection() {
   });
 
   // Scroll animations
-  const bgOpacity = useTransform(scrollYProgress, [0, 0.8], [0.8, 0.2]);
+  const bgOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.2]);
   const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   return (
@@ -56,7 +56,7 @@ export default function HeroSection() {
             <motion.div style={{ scale: bgScale }} className="w-full h-full">
               <Image
                 src={images[index]} 
-                alt="Goat Milk Skincare Background"
+                alt="Donkey Milk Skincare Background" // UPDATED Alt text
                 fill
                 priority
                 className="object-cover"
@@ -66,23 +66,21 @@ export default function HeroSection() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Glowing Overlay (No Blur) */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.4)_0%,rgba(244,114,182,0.1)_50%,transparent_100%)] mix-blend-overlay z-10 pointer-events-none"></div>
-        <div className="absolute inset-0 bg-white/20 z-0"></div>
+        
       </motion.div>
 
       {/* --- HERO CONTENT --- */}
-      {/* UPDATED: Increased max-w-4xl to max-w-6xl to allow the headline to stretch across the screen */}
       <div className="relative z-20 w-full max-w-6xl mx-auto text-center mt-10 flex flex-col items-center">
         
         {/* Animated Pill Badge */}
         <ScrollReveal direction="down" delay={0.2} className="flex justify-center mb-6">
+          {/* UPDATED: Goat -> Donkey */}
           <span className="glass px-4 py-1.5 rounded-full text-sm font-semibold text-gray-800 tracking-wide uppercase shadow-[0_0_15px_rgba(255,255,255,0.8)] border border-white/60 backdrop-blur-md">
-            100% Organic Goat Milk & Gentle
+            100% Organic Donkey Milk & Gentle
           </span>
         </ScrollReveal>
 
-        {/* UPDATED: Headline with fluid mobile sizing (6.5vw) and whitespace-nowrap to guarantee a single line */}
+        {/* Headline with fluid mobile sizing and whitespace-nowrap to guarantee a single line */}
         <h1 className="text-[6.5vw] sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 mb-6 drop-shadow-lg flex flex-col items-center justify-center text-center w-full">
           <span className="whitespace-nowrap">
             <TextReveal text="Pure Comfort for Your Baby's" />
@@ -92,10 +90,11 @@ export default function HeroSection() {
           </span>
         </h1>
 
-        {/* Subheadline Reveal (Max width kept tighter so paragraph doesn't stretch too far) */}
+        {/* Subheadline Reveal */}
         <ScrollReveal delay={0.4} direction="up" className="max-w-2xl">
+          {/* UPDATED: goat -> donkey */}
           <p className="mt-4 text-lg sm:text-xl md:text-2xl text-gray-800 font-bold opacity-95 leading-relaxed mb-12 drop-shadow-[0_0_10px_rgba(255,255,255,0.6)] px-4">
-            Nourish and protect with the natural goodness of farm-fresh goat milk. Dermatologist approved, naturally hypoallergenic.
+            Nourish and protect with the natural goodness of farm-fresh donkey milk. Dermatologist approved, naturally hypoallergenic.
           </p>
         </ScrollReveal>
 

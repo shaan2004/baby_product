@@ -7,8 +7,8 @@ import Footer from "@/components/layout/Footer"; // Import the Footer
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "GoatBaby | Pure Organic Skincare",
-  description: "Pure comfort for your baby's sensitive skin with organic goat milk.",
+  title: "TenderTouch | Pure Organic Skincare",
+  description: "Pure comfort for your baby's sensitive skin with organic donkey milk.",
 };
 
 export default function RootLayout({
