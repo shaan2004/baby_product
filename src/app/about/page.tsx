@@ -9,11 +9,10 @@ import { Heart, Shrub, ShieldCheck, Users } from "lucide-react";
 
 export default function AboutPage() {
   return (
-    // UPDATED: Replaced the blue/purple gradient with the client's exact sunset hex colors
-    <main className="pt-24 pb-20 overflow-hidden bg-gradient-to-br from-[#fce4a4] via-[#f48f98] to-[#eb3f80] min-h-screen">
+    // UPDATED: Used much lighter, pastel versions of the client's sunset hex colors
+    <main className="pt-24 pb-20 overflow-hidden bg-gradient-to-br from-[#fdf4d6] via-[#fbe6e8] to-[#fad1e1] min-h-screen">
       {/* SECTION 1: MISSION HERO */}
       <section className="px-4 max-w-7xl mx-auto py-20 text-center flex flex-col items-center justify-center">
-        {/* UPDATED: Changed hover shadow from blue to the new rose/coral color */}
         <ScrollReveal direction="down" className="glass card-premium px-4 py-1.5 rounded-full text-xs font-bold text-gray-700 uppercase mb-8 inline-block hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(244,143,152,0.5)] transition-all">
           Our Heart & Soul
         </ScrollReveal>
@@ -34,10 +33,8 @@ export default function AboutPage() {
       {/* SECTION 2: THE SOURCE (THE FARM) */}
       <section className="py-12 sm:py-24 relative px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 sm:gap-16 items-center">
-          {/* UPDATED: Shadow colors adjusted */}
           <ScrollReveal direction="right" className="order-2 md:order-1 relative h-64 sm:h-[500px] glass card-premium rounded-[2rem] sm:rounded-[3rem] overflow-hidden hover:-translate-y-3 active:-translate-y-2 hover:shadow-[0_0_40px_rgba(235,63,128,0.3)] active:shadow-[0_0_40px_rgba(235,63,128,0.4)] transition-all duration-500 bg-white/30 backdrop-blur-xl">
              <Image src="/assets/donkey.jpg" alt="Our happy donkeys" fill className="object-cover" />
-             {/* UPDATED: Overlay gradient shifted from blue to warm yellow/peach */}
              <div className="absolute inset-0 bg-gradient-to-t from-[#fce4a4]/60 to-transparent" />
           </ScrollReveal>
           
@@ -46,7 +43,6 @@ export default function AboutPage() {
             <p className="text-base sm:text-lg text-gray-800 mb-8 mx-auto md:mx-0 max-w-md font-medium">Our donkeys graze on organic pastures in the rolling hills. We believe that happy, stress-free donkeys produce the richest, most nutrient-dense milk.</p>
             
             <div className="grid grid-cols-2 gap-4">
-              {/* UPDATED: Hover shadow and text highlight shifted to new theme colors */}
               <div className="glass card-premium p-4 rounded-2xl group cursor-pointer hover:-translate-y-2 active:-translate-y-1 hover:shadow-[0_0_25px_rgba(244,143,152,0.5)] active:shadow-[0_0_25px_rgba(244,143,152,0.6)] transition-all duration-300 relative overflow-hidden">
                  <div className="absolute inset-0 bg-theme-gradient opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300 -z-10"></div>
                  <p className="font-bold text-[#f48f98] group-hover:text-white group-active:text-white transition-colors">100% Organic</p>
@@ -94,7 +90,6 @@ export default function AboutPage() {
 
       {/* SECTION 4: SUSTAINABILITY VALUES */}
       <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4">
-        {/* UPDATED: Hover shadow changed to hot pink */}
         <div className="card-premium py-24 px-6 sm:py-32 sm:px-16 rounded-3xl sm:rounded-[4rem] text-center overflow-hidden relative hover:-translate-y-3 active:-translate-y-2 hover:shadow-[0_0_50px_rgba(235,63,128,0.5)] transition-all duration-500 flex flex-col justify-center min-h-[500px]">
           
           <div className="absolute inset-0 w-full h-full z-0">

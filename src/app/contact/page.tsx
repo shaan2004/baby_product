@@ -7,8 +7,8 @@ import { Mail, Phone, MapPin, Send } from "lucide-react";
 
 export default function ContactPage() {
   return (
-    // UPDATED: Added the denser gradient background (blue-200, purple-100, pink-200) and min-h-screen
-    <main className="pt-24 pb-12 overflow-hidden bg-gradient-to-br from-blue-200 via-purple-100 to-pink-200 min-h-screen">
+    // UPDATED: Used the new milky pastel gradient background
+    <main className="pt-24 pb-12 overflow-hidden bg-gradient-to-br from-[#fdf4d6] via-[#fbe6e8] to-[#fad1e1] min-h-screen">
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           
@@ -24,40 +24,42 @@ export default function ContactPage() {
             
             {/* Contact Info wrapped in Glass Cards with Touch/Hover Effects */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10 sm:mb-12">
-              {/* Email Card */}
-              <div className="glass card-premium p-4 sm:p-6 rounded-2xl group cursor-pointer hover:-translate-y-2 active:-translate-y-1 hover:shadow-[0_0_25px_rgba(96,165,250,0.3)] active:shadow-[0_0_25px_rgba(96,165,250,0.4)] transition-all duration-300 flex items-center gap-4 relative overflow-hidden">
+              {/* Email Card - UPDATED HOVER COLORS */}
+              <div className="glass card-premium p-4 sm:p-6 rounded-2xl group cursor-pointer hover:-translate-y-2 active:-translate-y-1 hover:shadow-[0_0_25px_rgba(244,143,152,0.4)] active:shadow-[0_0_25px_rgba(244,143,152,0.5)] transition-all duration-300 flex items-center gap-4 relative overflow-hidden">
                 <div className="absolute inset-0 bg-theme-gradient opacity-0 group-hover:opacity-10 group-active:opacity-10 transition-opacity duration-300 -z-10"></div>
-                <div className="w-12 h-12 shrink-0 glass rounded-xl flex items-center justify-center text-blue-500 group-hover:bg-gradient-to-br group-hover:from-blue-400 group-hover:to-purple-500 group-hover:text-white group-active:bg-gradient-to-br group-active:from-blue-400 group-active:to-purple-500 group-active:text-white transition-all shadow-md">
+                <div className="w-12 h-12 shrink-0 glass rounded-xl flex items-center justify-center text-[#f48f98] group-hover:bg-gradient-to-br group-hover:from-[#fce4a4] group-hover:to-[#f48f98] group-hover:text-white group-active:bg-gradient-to-br group-active:from-[#fce4a4] group-active:to-[#f48f98] group-active:text-white transition-all shadow-md">
                   <Mail size={20}/>
                 </div>
                 <div>
-                  <p className="text-[10px] sm:text-xs font-bold uppercase text-gray-400 group-hover:text-blue-500 group-active:text-blue-500 transition-colors">Email us</p>
+                  <p className="text-[10px] sm:text-xs font-bold uppercase text-gray-400 group-hover:text-[#f48f98] group-active:text-[#f48f98] transition-colors">Email us</p>
                   <p className="text-sm sm:text-lg font-bold text-gray-900">hello@TenderTouch.com</p>
                 </div>
               </div>
 
-              {/* Phone Card */}
-              <div className="glass card-premium p-4 sm:p-6 rounded-2xl group cursor-pointer hover:-translate-y-2 active:-translate-y-1 hover:shadow-[0_0_25px_rgba(244,114,182,0.3)] active:shadow-[0_0_25px_rgba(244,114,182,0.4)] transition-all duration-300 flex items-center gap-4 relative overflow-hidden">
+              {/* Phone Card - UPDATED HOVER COLORS */}
+              <div className="glass card-premium p-4 sm:p-6 rounded-2xl group cursor-pointer hover:-translate-y-2 active:-translate-y-1 hover:shadow-[0_0_25px_rgba(235,63,128,0.3)] active:shadow-[0_0_25px_rgba(235,63,128,0.4)] transition-all duration-300 flex items-center gap-4 relative overflow-hidden">
                 <div className="absolute inset-0 bg-theme-gradient opacity-0 group-hover:opacity-10 group-active:opacity-10 transition-opacity duration-300 -z-10"></div>
-                <div className="w-12 h-12 shrink-0 glass rounded-xl flex items-center justify-center text-pink-500 group-hover:bg-gradient-to-br group-hover:from-purple-400 group-hover:to-pink-500 group-hover:text-white group-active:bg-gradient-to-br group-active:from-purple-400 group-active:to-pink-500 group-active:text-white transition-all shadow-md">
+                <div className="w-12 h-12 shrink-0 glass rounded-xl flex items-center justify-center text-[#eb3f80] group-hover:bg-gradient-to-br group-hover:from-[#f48f98] group-hover:to-[#eb3f80] group-hover:text-white group-active:bg-gradient-to-br group-active:from-[#f48f98] group-active:to-[#eb3f80] group-active:text-white transition-all shadow-md">
                   <Phone size={20}/>
                 </div>
                 <div>
-                  <p className="text-[10px] sm:text-xs font-bold uppercase text-gray-400 group-hover:text-pink-500 group-active:text-pink-500 transition-colors">Call us</p>
+                  <p className="text-[10px] sm:text-xs font-bold uppercase text-gray-400 group-hover:text-[#eb3f80] group-active:text-[#eb3f80] transition-colors">Call us</p>
                   <p className="text-sm sm:text-lg font-bold text-gray-900">1-800-TENDER-TOUCH</p>
                 </div>
               </div>
             </div>
 
             {/* Form scaling, grid layout for inputs on desktop, and glowing button */}
-            <form className="glass p-6 sm:p-8 rounded-3xl sm:rounded-[2.5rem] border-white/60 space-y-4 shadow-xl hover:shadow-[0_0_40px_rgba(96,165,250,0.15)] transition-shadow duration-500">
+            <form className="glass p-6 sm:p-8 rounded-3xl sm:rounded-[2.5rem] border-white/60 space-y-4 shadow-xl hover:shadow-[0_0_40px_rgba(244,143,152,0.2)] transition-shadow duration-500">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <input type="text" placeholder="Your Name" className="w-full px-5 py-4 rounded-xl sm:rounded-2xl bg-white/50 border border-white focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all text-sm sm:text-base text-gray-800 placeholder-gray-500" />
-                <input type="email" placeholder="Email Address" className="w-full px-5 py-4 rounded-xl sm:rounded-2xl bg-white/50 border border-white focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all text-sm sm:text-base text-gray-800 placeholder-gray-500" />
+                {/* UPDATED: Input focus rings */}
+                <input type="text" placeholder="Your Name" className="w-full px-5 py-4 rounded-xl sm:rounded-2xl bg-white/50 border border-white focus:outline-none focus:ring-2 focus:ring-[#fce4a4] transition-all text-sm sm:text-base text-gray-800 placeholder-gray-500" />
+                <input type="email" placeholder="Email Address" className="w-full px-5 py-4 rounded-xl sm:rounded-2xl bg-white/50 border border-white focus:outline-none focus:ring-2 focus:ring-[#f48f98] transition-all text-sm sm:text-base text-gray-800 placeholder-gray-500" />
               </div>
-              <textarea placeholder="How can we help?" rows={4} className="w-full px-5 py-4 rounded-xl sm:rounded-2xl bg-white/50 border border-white focus:outline-none focus:ring-2 focus:ring-pink-400 transition-all text-sm sm:text-base text-gray-800 placeholder-gray-500 resize-none" />
+              <textarea placeholder="How can we help?" rows={4} className="w-full px-5 py-4 rounded-xl sm:rounded-2xl bg-white/50 border border-white focus:outline-none focus:ring-2 focus:ring-[#eb3f80] transition-all text-sm sm:text-base text-gray-800 placeholder-gray-500 resize-none" />
               
-              <button className="w-full relative overflow-hidden group bg-white text-gray-900 py-4 rounded-xl sm:rounded-2xl font-bold shadow-md hover:shadow-[0_0_25px_rgba(244,114,182,0.5)] active:scale-[0.98] transition-all flex items-center justify-center gap-2 border-2 border-gray-100 border-transparent">
+              {/* UPDATED: Button hover glow */}
+              <button className="w-full relative overflow-hidden group bg-white text-gray-900 py-4 rounded-xl sm:rounded-2xl font-bold shadow-md hover:shadow-[0_0_25px_rgba(235,63,128,0.5)] active:scale-[0.98] transition-all flex items-center justify-center gap-2 border-2 border-gray-100 border-transparent">
                 <div className="absolute inset-0 bg-theme-gradient opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
                 <span className="relative z-10 flex items-center gap-2 text-white sm:text-gray-900 sm:group-hover:text-white transition-colors duration-300">
                   Send Message <Send size={18} className="group-hover:translate-x-1 group-active:translate-x-1 transition-transform"/>
@@ -69,7 +71,7 @@ export default function ContactPage() {
           {/* RIGHT: LIVE MAP INTEGRATION */}
           <ScrollReveal direction="left" className="lg:sticky lg:top-32 mt-8 lg:mt-0">
             {/* 'group' class to trigger child animations. Replaced the standard shadow with an intense pink/purple glowing shadow on hover. */}
-            <div className="p-3 sm:p-4 rounded-3xl sm:rounded-[3rem] border border-white/60 shadow-2xl overflow-hidden h-[400px] sm:h-[600px] relative group hover:shadow-[0_0_50px_rgba(244,114,182,0.4)] transition-all duration-500">
+            <div className="p-3 sm:p-4 rounded-3xl sm:rounded-[3rem] border border-white/60 shadow-2xl overflow-hidden h-[400px] sm:h-[600px] relative group hover:shadow-[0_0_50px_rgba(235,63,128,0.4)] transition-all duration-500">
               
               {/* Default Glass Background - Fades OUT on hover */}
               <div className="absolute inset-0 glass transition-opacity duration-500 group-hover:opacity-0 z-0"></div>
