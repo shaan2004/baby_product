@@ -12,7 +12,7 @@ export default function HeroSection() {
   const containerRef = useRef(null);
   const [index, setIndex] = useState(0);
   
-  const images = ["/assets/b4.png", "/assets/b1.png", "/assets/b3.png"];
+  const images = ["/assets/floating.png", "/assets/b1.png", "/assets/falling.png"];
 
   // Auto-transition timer (every 5 seconds)
   useEffect(() => {

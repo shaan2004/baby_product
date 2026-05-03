@@ -5,7 +5,9 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import HeroSection from "@/components/sections/HeroSection";
 import ScrollReveal from "@/components/animations/ScrollReveal";
+import StoryScroll from "@/components/animations/StoryScroll";
 import TextReveal from "@/components/animations/TextReveal";
+import AncestralSection from "@/components/sections/AncestralSection";
 import BorderGlow from "@/components/animations/BorderGlow"; // Added BorderGlow Import
 import LeadGenBanner from "@/components/sections/LeadGenBanner";
 import Button from "@/components/ui/Button";
@@ -188,6 +190,7 @@ export default function Home() {
           </ScrollReveal>
         </div>
       </section>
+      <AncestralSection />
 
       {/* --- HORIZONTAL PROCESS SECTION --- */}
       <ProcessTimeline />
