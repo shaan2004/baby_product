@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import HeroSection from "@/components/sections/HeroSection";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import StoryScroll from "@/components/animations/StoryScroll";
@@ -56,29 +56,42 @@ function InlineFaqCard({ question, answer }: { question: string; answer: string 
 }
 
 // --- HORIZONTAL PROCESS TIMELINE ---
+// --- HORIZONTAL PROCESS TIMELINE ---
 function ProcessTimeline() {
   const targetRef = useRef<HTMLElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start start", "end end"] 
   });
 
+  // Moves the container horizontally
   const x = useTransform(scrollYProgress, [0, 1], ["0vw", "-500vw"]);
 
+  // This magically calculates which card is in the center of the screen
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    // We have 6 cards, so there are 5 "intervals" of scrolling
+    const stepSize = 1 / 5; 
+    const index = Math.round(latest / stepSize);
+    setActiveIndex(index);
+  });
+
   const steps = [
-    { num: "01", title: "Ethical Sourcing", desc: "Our happy donkeys graze on organic pastures, ensuring the most nutrient-dense milk.", pos: "top-[15%]" },
-    { num: "02", title: "Fresh Milking", desc: "Collected daily and immediately chilled to preserve vitamins A & E.", pos: "bottom-[15%]" },
-    { num: "03", title: "Botanical Infusion", desc: "Slowly blended with calming chamomile and oat extracts in small batches.", pos: "top-[15%]" },
-    { num: "04", title: "Curing & Testing", desc: "Cured for 6 weeks and triple-tested to guarantee a perfect pH match for baby skin.", pos: "bottom-[15%]" },
-    { num: "05", title: "Gentle Formulation", desc: "Carefully pH balanced to perfectly match newborn tears and sensitive skin.", pos: "top-[15%]" },
-    { num: "06", title: "Eco-Delivery", desc: "Sealed in 100% recyclable bottles and delivered fresh to your nursery.", pos: "bottom-[15%]" },
+    // UPDATED: Changed pos to top-[40%] and top-[55%] to stay well below the title
+    { num: "01", title: "Ethical Sourcing", desc: "Our happy donkeys graze on organic pastures, ensuring the most nutrient-dense milk.", pos: "top-[40%]" },
+    { num: "02", title: "Fresh Milking", desc: "Collected daily and immediately chilled to preserve vitamins A & E.", pos: "top-[55%]" },
+    { num: "03", title: "Botanical Infusion", desc: "Slowly blended with calming chamomile and oat extracts in small batches.", pos: "top-[40%]" },
+    { num: "04", title: "Curing & Testing", desc: "Cured for 6 weeks and triple-tested to guarantee a perfect pH match for baby skin.", pos: "top-[55%]" },
+    { num: "05", title: "Gentle Formulation", desc: "Carefully pH balanced to perfectly match newborn tears and sensitive skin.", pos: "top-[40%]" },
+    { num: "06", title: "Eco-Delivery", desc: "Sealed in 100% recyclable bottles and delivered fresh to your nursery.", pos: "top-[55%]" },
   ];
 
   return (
     <section ref={targetRef} className="relative h-[600vh] bg-[#fdf4d6]/30">
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center">
         
+        {/* Background Video */}
         <div className="absolute inset-0 z-0 flex items-center justify-center opacity-80 pointer-events-none">
           <video
             autoPlay
@@ -90,29 +103,51 @@ function ProcessTimeline() {
           />
         </div>
 
-        <div className="absolute top-[18%] left-0 w-full text-center pointer-events-none z-0">
-          {/* UPDATED: drop-shadow adjusted */}
+        {/* Title locked to the top */}
+        <div className="absolute top-[12%] md:top-[18%] left-0 w-full text-center pointer-events-none z-0">
           <h2 className="text-5xl md:text-8xl font-black tracking-widest uppercase text-gradient drop-shadow-[0_0_30px_rgba(244,143,152,0.4)] opacity-80">
             The Process
           </h2>
         </div>
 
+        {/* Scrolling Cards */}
         <motion.div style={{ x }} className="relative z-10 flex h-full w-[600vw]">
-          {steps.map((step, index) => (
-            <div key={index} className="relative w-[100vw] h-full flex-shrink-0 flex items-center justify-center pointer-events-none">
-              <div className={`absolute ${step.pos} w-[85vw] sm:w-[400px] pointer-events-auto`}>
-                {/* UPDATED: Hover shadow colors */}
-                <div className="glass card-premium p-8 rounded-[2.5rem] bg-white/40 backdrop-blur-2xl shadow-xl group hover:-translate-y-4 active:-translate-y-2 hover:shadow-[0_0_40px_rgba(235,63,128,0.4)] active:shadow-[0_0_40px_rgba(235,63,128,0.5)] transition-all duration-500 overflow-hidden relative">
-                  <div className="absolute inset-0 bg-theme-gradient opacity-0 group-hover:opacity-90 group-active:opacity-90 transition-opacity duration-500 -z-10"></div>
-                  <div className="w-14 h-14 rounded-full bg-theme-gradient text-white group-hover:bg-white group-active:bg-white group-hover:text-[#eb3f80] group-active:text-[#eb3f80] flex items-center justify-center font-black text-2xl mb-6 shadow-lg transition-colors duration-500">
-                    {step.num}
+          {steps.map((step, index) => {
+            // Check if THIS specific card is the one in the center
+            const isActive = index === activeIndex;
+
+            return (
+              <div key={index} className="relative w-[100vw] h-full flex-shrink-0 flex items-center justify-center pointer-events-none">
+                
+                {/* The Wrapper that controls position */}
+                <div className={`absolute ${step.pos} w-[85vw] sm:w-[400px] pointer-events-auto transition-transform duration-700 group ${isActive ? '-translate-y-4 scale-105' : 'hover:-translate-y-4'}`}>
+                  
+                  {/* The Card itself with dynamic active/hover classes */}
+                  <div className={`glass card-premium p-8 rounded-[2.5rem] bg-white/40 backdrop-blur-2xl transition-all duration-500 overflow-hidden relative ${isActive ? 'shadow-[0_0_40px_rgba(235,63,128,0.5)]' : 'shadow-xl hover:shadow-[0_0_40px_rgba(235,63,128,0.4)]'}`}>
+                    
+                    {/* Pink Gradient Background (Shows if active OR hovered) */}
+                    <div className={`absolute inset-0 bg-theme-gradient transition-opacity duration-500 -z-10 ${isActive ? 'opacity-90' : 'opacity-0 group-hover:opacity-90'}`}></div>
+                    
+                    {/* Number Circle */}
+                    <div className={`w-14 h-14 rounded-full flex items-center justify-center font-black text-2xl mb-6 shadow-lg transition-colors duration-500 ${isActive ? 'bg-white text-[#eb3f80]' : 'bg-theme-gradient text-white group-hover:bg-white group-hover:text-[#eb3f80]'}`}>
+                      {step.num}
+                    </div>
+                    
+                    {/* Title */}
+                    <h3 className={`text-3xl font-extrabold transition-colors duration-500 mb-4 ${isActive ? 'text-white' : 'text-gray-900 group-hover:text-white'}`}>
+                      {step.title}
+                    </h3>
+                    
+                    {/* Description */}
+                    <p className={`text-lg font-medium leading-relaxed transition-colors duration-500 ${isActive ? 'text-white/95' : 'text-gray-700 group-hover:text-white/95'}`}>
+                      {step.desc}
+                    </p>
+
                   </div>
-                  <h3 className="text-3xl font-extrabold text-gray-900 group-hover:text-white group-active:text-white transition-colors duration-500 mb-4">{step.title}</h3>
-                  <p className="text-lg text-gray-700 font-medium leading-relaxed group-hover:text-white/95 group-active:text-white/95 transition-colors duration-500">{step.desc}</p>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </motion.div>
 
       </div>
